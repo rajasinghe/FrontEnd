@@ -1,0 +1,11 @@
+.item{
+    height: 50px;
+    width: 50px;
+    background-color:#1679b2;
+    margin: 2px;
+}
+.staggeringGrid{
+    z-index: 20;
+    overflow-x: hidden;
+    width: 100%;
+}

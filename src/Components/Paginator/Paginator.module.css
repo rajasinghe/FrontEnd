@@ -1,0 +1,12 @@
+.pageBox{
+    width: max-content;
+    border: solid 2px black ;
+    margin: 2px;
+    padding: 5px;
+    cursor: default;
+}
+
+.active{
+    background-color: black;
+    color: red;
+}
