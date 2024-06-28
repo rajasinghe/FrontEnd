@@ -3,11 +3,7 @@ interface props {
 }
 function LoginComponenet({ color }: props) {
   return (
-    <button
-      className={"btn btn-" + color || "primary"}
-      type="submit"
-      onClick={handleLogin}
-    >
+    <button className={"btn btn-" + color || "primary"} type="submit" onClick={handleLogin}>
       Login
     </button>
   );

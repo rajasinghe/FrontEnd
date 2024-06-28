@@ -3,6 +3,7 @@ import "./homepage.css";
 import { useEffect, useRef } from "react";
 import AnimatedComponennt from "../AnimatedComponent/AnimatedComponennt";
 import solarBackgroundImage from "../../assets/images/-1x-1.jpg";
+import { Link } from "react-router-dom";
 function HomePage() {
   /* const animeRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -25,7 +26,9 @@ function HomePage() {
         <p className="display-1 fw-bold text-white">Worlds No.1 Technology.</p>
         <p className=" display-1  fw-semibold ">Change With the World.</p>
         <p className=" display-2">Explore The Technology.</p>
-        <button className="btn btn-primary">Explore</button>
+        <Link to={"products"} className="btn btn-primary">
+          Explore
+        </Link>
       </div>
     </div>
   );

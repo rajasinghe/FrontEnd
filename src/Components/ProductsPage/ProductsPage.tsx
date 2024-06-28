@@ -1,7 +1,6 @@
 import ItemCard from "../ItemCard/ItemCard";
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Paginator from "../Paginator/Paginator";
-import AddPost from "../AddPostComponent/AddPost";
 
 interface item {
   id: number;

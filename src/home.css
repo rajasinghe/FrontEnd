@@ -2,6 +2,7 @@
     height: 4px;
     width: 4px;
 }
+
 body{
  background-color: #E1F7F5;   
 }
@@ -20,17 +21,8 @@ body{
     border-radius: 10px;
 }
 
-/* .table-responsive{
-    height: 50px;
-} */
-
 .table{
     white-space:nowrap;
-}
-
-
-.logo_img {
-   width:190px
 }
 
 .landing-page {
@@ -39,49 +31,14 @@ body{
     height: 89vh;
 }
 
-.navbar{
-    height: 12vh;
-    padding: 0%;
-    background-color: #E1F7F5;
-}
-
-.img-cd {
-    margin: 5px;
-    align-self: center;
-    height: 200px;
-    width: 100%;
-}
-
-.table-responsive{
-    max-height: 70vh;
-    max-width: 98vw;
-}
-
-.login-img {}
-
 .login-img img {
     width: 100%;
     height: 100%;
 }
 
-
-.item-heading{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-}
-
-.item-card{
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px  rgba(0,0,0,0.3);
-    background-color: rgba(255,255, 255,0.8);
-    transition: all 0.5s ease 0;
-}
-
-.item-card img{
-    width: 100%;
-    height: 200px;
+.table-responsive{
+    max-height: 70vh;
+    max-width: 98vw;
 }
 
 

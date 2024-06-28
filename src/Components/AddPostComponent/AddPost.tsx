@@ -1,5 +1,7 @@
-import React, { MutableRefObject, SetStateAction, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ItemCard from "../ItemCard/ItemCard";
+import FormTextInput from "../FormInputComponent/FormInput";
+
 /* 
 of course all the things work fine but the on pop up state of the browser will trigger the re render if user
 regardless of if the user has interaceted before the validation logic will run in the use effect hook with the 
@@ -241,80 +243,6 @@ function AddPost() {
   );
 }
 
-interface FormInputComponent {
-  type: "textArea" | "input" | "file";
-  label: string;
-  className?: string;
-  state: string;
-  setState: (state: string | SetStateAction<string>) => void;
-  isValid: boolean | null;
-  setIsValid: (isValid: boolean | SetStateAction<boolean | null>) => void;
-  instanceRef?: MutableRefObject<HTMLInputElement | null>;
-  validator: () => boolean;
-}
-
-const FormTextInput = ({
-  state,
-  setState,
-  label,
-  className,
-  isValid,
-  setIsValid,
-  instanceRef,
-  type,
-  validator,
-}: FormInputComponent) => {
-  const intialRender = useRef<boolean>(true);
-  useEffect(() => {
-    console.log(label + " component rerendered");
-  });
-
-  useEffect(() => {
-    if (intialRender.current) {
-      console.log("initial render of the input component");
-      intialRender.current = false;
-    } else {
-      if (validator()) {
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-      }
-    }
-  }, [state]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    //here i setted the state but the event handler has the same previous snapshot of the state
-    setState(e.target.value);
-    //if we do some thing here wit the state the state will have the previous value
-  };
-  return (
-    <div className={className}>
-      <label className=" form-label ">{label}</label>
-      {type === "textArea" ? (
-        <textarea
-          value={state}
-          className={`form-control ${isValid == null ? "" : isValid ? "is-valid" : "is-invalid"}`}
-          onChange={handleChange}
-        />
-      ) : (
-        <input
-          ref={instanceRef}
-          type="text"
-          value={state}
-          className={`form-control ${isValid == null ? "" : isValid ? "is-valid" : "is-invalid"}`}
-          onChange={handleChange}
-        />
-      )}
-
-      <div
-        className={isValid == null ? "opacity-0" : isValid ? "valid-feedback" : "invalid-feedback"}
-      >
-        {isValid ? `valid ${label}` : `invalid ${label}`}
-      </div>
-    </div>
-  );
-};
-
 async function createPostRequest(data: sendPostRequest) {
   console.log(data);
   const responseJson = await fetch("http://localhost:3000/api/products", {
@@ -324,11 +252,12 @@ async function createPostRequest(data: sendPostRequest) {
       "Content-Type": "application/json",
     },
   });
+  
   if (responseJson.ok) {
     console.log("submission sucessfull");
   } else {
     console.log("submission unsuccessfull");
-  }
+  } 
   const response = await responseJson.json();
   console.log(response);
 }

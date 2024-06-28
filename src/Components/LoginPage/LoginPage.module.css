@@ -1,0 +1,8 @@
+
+.main{
+    height: 100vh - (--nav-height);
+}
+
+.flex1{
+    flex: 1;
+}

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import testImage from "../../assets/images/robotic-equipment-industrial-background-vector-16631660.jpg";
+import styles from "./itemCard.module.css";
 interface props {
   itemName: string;
   itemRating: number;
@@ -16,9 +17,9 @@ function ItemCard(props: props) {
   const { itemName, itemRating, itemPrice, status, country, image } = props;
   return (
     <div className="p-2  col-12  col-sm-6 col-md-4 col-lg-3">
-      <div className="item-card p-2 ">
-        <img className="" src={image || testImage} alt="" />
-        <div className="item-heading fs-3 fw-semibold ">{itemName}</div>
+      <div className={`${styles["item-card"]} p-2`}>
+        <img src={image || testImage} alt="" />
+        <div className={`${styles["item-heading"]} fs-3 fw-semibold`}>{itemName}</div>
         <div className="d-flex ">
           <div className="">
             {Array.from({ length: itemRating }).map((_, index: any) => {
